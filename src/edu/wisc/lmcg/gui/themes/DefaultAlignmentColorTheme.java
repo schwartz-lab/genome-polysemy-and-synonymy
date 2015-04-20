@@ -6,7 +6,7 @@
 
 package edu.wisc.lmcg.gui.themes;
 
-import edu.wisc.lmcg.gui.MapDrawingType;
+import edu.wisc.lmcg.gui.FragmentColorType;
 import java.awt.Color;
 
 /**
@@ -16,18 +16,18 @@ import java.awt.Color;
 public class DefaultAlignmentColorTheme extends AlignmentColorTheme{
 
     @Override
-    public Color getNormalColor(MapDrawingType mapType) {
+    public Color getNormalColor(FragmentColorType mapType) {
         return new Color(12, 182, 186);
     }
 
     @Override
     public Color getMissingCutColor() {
-        return new Color(243, 255, 116);
+        return new Color(32, 54, 215);
     }
 
     @Override
     public Color getExtraCutColor() {
-        return new Color(132, 195, 255);
+        return new Color(223, 4, 235);
     }
 
     @Override

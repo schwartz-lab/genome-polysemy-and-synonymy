@@ -86,21 +86,39 @@ public class AlignLines {
         setLineEnds();
 
         //set the color of both maps' fragments appropriately
+        
+        int lastLeftIdx = -1, lastRightIdx = -1;
+        int currentLeftPosition = -1;
+        int currentRightPosition = -1;
         for (int i = leftAlMapIndex; i <= rightAlMapIndex; i++) {
             
             FragAlignment fragAlignment = alignment.getFragAlignmentAtMapIndex(i);
             if (fragAlignment != null) {
                 
                 if ( isReversed ){                
-                    alMap.colorAlignedRegion( alMap.getFragRectangles().size() - i - 1, MapDrawingType.OpticalMap);
+                    alMap.colorAlignedRegion( alMap.getFragRectangles().size() - i - 1, FragmentColorType.OpticalMap);
                 }else{
                     //Color the aligned map
-                    alMap.colorAlignedRegion(i, MapDrawingType.OpticalMap);
+                    alMap.colorAlignedRegion(i, FragmentColorType.OpticalMap);
                 }
                 
+                lastLeftIdx = currentLeftPosition;
+                lastRightIdx = currentRightPosition;
+                currentLeftPosition = fragAlignment.getLeftAlignment();
+                currentRightPosition = fragAlignment.getRightAlignment();
+                
+                FragmentColorType ct = FragmentColorType.ReferenceMap;
+                if ( currentLeftPosition == currentRightPosition ){
+                    ct = FragmentColorType.ReferenceMap;                                        
+                }else if ( currentLeftPosition < currentRightPosition ){
+                    ct = FragmentColorType.MissingCut;
+                }else if ( currentLeftPosition == lastLeftIdx || currentLeftPosition == lastRightIdx ||
+                           currentRightPosition == lastLeftIdx || currentRightPosition == lastRightIdx)
+                    ct = FragmentColorType.ExtraCut;
+                
                 //color the reference map
-                for (int j = fragAlignment.getLeftAlignment(); j <= fragAlignment.getRightAlignment(); j++){
-                    refMap.colorAlignedRegion(j, MapDrawingType.ReferenceMap);
+                for (int j = currentLeftPosition; j <= currentRightPosition ; j++){
+                    refMap.colorAlignedRegion(j, ct);
                 }
             }
         }

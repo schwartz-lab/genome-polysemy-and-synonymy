@@ -64,7 +64,7 @@ public class JContigInformationPanel extends javax.swing.JPanel {
         //Set the colors for the legend
         AlignmentColorTheme colorTheme = MapGUI.getAlignmentColorTheme();        
         if ( this.panelRefMapAligned != null)
-            this.panelRefMapAligned.setBackground(colorTheme.getNormalColor(MapDrawingType.ReferenceMap));
+            this.panelRefMapAligned.setBackground(colorTheme.getNormalColor(FragmentColorType.ReferenceMap));
         if ( this.panelOverlapping != null)
             this.panelOverlapping.setBackground(colorTheme.getOverlappingColor());
         if ( this.panelUnaligned != null)

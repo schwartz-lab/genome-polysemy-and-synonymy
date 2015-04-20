@@ -6,7 +6,7 @@
 
 package edu.wisc.lmcg.gui.themes;
 
-import edu.wisc.lmcg.gui.MapDrawingType;
+import edu.wisc.lmcg.gui.FragmentColorType;
 import java.awt.Color;
 
 /**
@@ -25,7 +25,7 @@ public abstract class AlignmentColorTheme {
      * @param mapType enumeration indicating whether the map is a reference map or not
      * @return The color for the aligned fragment
      */
-    public abstract Color getNormalColor(MapDrawingType mapType);
+    public abstract Color getNormalColor(FragmentColorType mapType);
     
     /**
      * Returns the color for a missing cut

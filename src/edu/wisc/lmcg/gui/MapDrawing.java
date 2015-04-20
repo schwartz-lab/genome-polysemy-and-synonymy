@@ -228,7 +228,7 @@ public class MapDrawing {
      * @param rightIndex right bound of the aligned region
      * @param mapType
      */
-    public void colorAlignedRegion(int leftIndex, int rightIndex, MapDrawingType mapType) {
+    public void colorAlignedRegion(int leftIndex, int rightIndex, FragmentColorType mapType) {
         for (int i = leftIndex; i <= rightIndex; i++) {
             
             fragRectangles.get(i).color(mapType);
@@ -241,7 +241,7 @@ public class MapDrawing {
      * @param index
      * @param mapType
      */
-    public void colorAlignedRegion(int index, MapDrawingType mapType) {
+    public void colorAlignedRegion(int index, FragmentColorType mapType) {
             
         fragRectangles.get(index).color(mapType);        
         

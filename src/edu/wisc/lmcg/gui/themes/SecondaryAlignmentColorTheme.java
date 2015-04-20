@@ -6,7 +6,7 @@
 
 package edu.wisc.lmcg.gui.themes;
 
-import edu.wisc.lmcg.gui.MapDrawingType;
+import edu.wisc.lmcg.gui.FragmentColorType;
 import java.awt.Color;
 
 /**
@@ -16,8 +16,8 @@ import java.awt.Color;
 public class SecondaryAlignmentColorTheme extends AlignmentColorTheme{
 
     @Override
-    public Color getNormalColor(MapDrawingType mapType) {
-        if ( mapType == MapDrawingType.ReferenceMap )
+    public Color getNormalColor(FragmentColorType mapType) {
+        if ( FragmentColorType.ReferenceMap == mapType)
             return new Color(6, 181, 185);
         else
             return new Color(224, 167, 5);

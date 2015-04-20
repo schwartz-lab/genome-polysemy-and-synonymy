@@ -64,17 +64,22 @@ public class FragRectangle extends Rectangle2D.Double {
         basePairString = String.format("%,d", basePairs); 
     }
     
-    public void color(MapDrawingType mapType) {
+    public void color(FragmentColorType mapType) {
         
         AlignmentColorTheme theme = MapGUI.getAlignmentColorTheme();
         
-        if (fill == null) {
-            fill = theme.getNormalColor(mapType);
-            return;
-        }
         
-        if (    fill.equals(theme.getNormalColor(MapDrawingType.OpticalMap)) ||
-                fill.equals(theme.getNormalColor(MapDrawingType.ReferenceMap))) {
+        if (fill == null) {
+            
+            if ( mapType.equals(FragmentColorType.OpticalMap) )            
+                fill = theme.getNormalColor(mapType);
+            else if (mapType.equals(FragmentColorType.ReferenceMap))
+                fill = theme.getNormalColor(mapType);
+            else if (mapType.equals(FragmentColorType.MissingCut))                
+                fill = theme.getMissingCutColor();
+            else if (mapType.equals(FragmentColorType.ExtraCut))
+                fill = theme.getExtraCutColor();
+        }else{
             fill = theme.getOverlappingColor();
         }
     }

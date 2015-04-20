@@ -10,9 +10,11 @@ package edu.wisc.lmcg.gui;
  *
  * @author dipaco
  */
-public enum MapDrawingType {
+public enum FragmentColorType {
     
     ReferenceMap,
-    OpticalMap
+    OpticalMap,
+    MissingCut,
+    ExtraCut
     
 }
